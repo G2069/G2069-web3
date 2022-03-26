@@ -5,7 +5,7 @@ import { cardStyles } from "./ReusableStyles";
 import { Context } from "../context/Context";
 
 export default function Transfers() {
-  const { currentAccount, tokenBuyFunction } = useContext(Context);
+  const { currentAccount, tokenBuyFunction,error, successMsg } = useContext(Context);
   const [inputFieldChange, setInputFieldChange] = useState(0);
 
   const changeInInputField = (e) => {
@@ -19,6 +19,8 @@ export default function Transfers() {
       window.alert("Minumum Purchase is 0.67BNB");
     }
   };
+  
+  const tokenAmount = (inputFieldChange*400)
 
   if (!currentAccount) {
     return (
@@ -76,11 +78,16 @@ export default function Transfers() {
           placeholder="input BNB amount"
           onChange={changeInInputField}
         />
+        <p>Token You Will Get: {tokenAmount}</p>
       </div>
       <div className="button__section">
         <button className="purchase" onClick={onSubmit}>
           <p>Buy</p>
         </button>
+      </div>
+      <div className="message">
+        {error && (<p>{error}</p>)}
+        {successMsg && (<p>{successMsg}</p>)}
       </div>
     </Section>
   );

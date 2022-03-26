@@ -7,7 +7,8 @@ export const Context = React.createContext();
 const web3 = new Web3(window.ethereum);
 
 export const ContextProvider = ({ children }) => {
-  const [currentAccount, setCurrentAccount] = useState("");
+  const [currentAccount, setCurrentAccount] = useState(0x0);
+  const [successMsg, setSuccessMsg] = useState("");
   const [error, setError] = useState("");
   const [preSeedTokenSold, setPreSeedTokenSold] = useState(0);
   const [preSeedContributors, setPreSeedContributors] = useState(0);
@@ -49,6 +50,14 @@ export const ContextProvider = ({ children }) => {
     }
   };
   //----End of Connect Wallet-----//
+
+  //Account Handler//
+  const logAccounts = (accounts) => {
+    console.log(`Accounts:\n${accounts.join("\n")}`);
+    window.location.reload();
+  };
+
+  //-------End of Account Handler--------//
 
   //Load BlockChain Data//
   const loadBlockChainData = async () => {
@@ -113,18 +122,21 @@ export const ContextProvider = ({ children }) => {
 
   //Purchase Function//
   const tokenBuyFunction = async (a) => {
-    const accounts = await web3.eth.getAccounts();
-    if (accounts.length === 0) {
-      return;
+    try {
+      const accounts = await web3.eth.getAccounts();
+      if (accounts.length === 0) {
+        return;
+      }
+      setCurrentAccount(accounts[0]);
+      const amountOfEthInwei = web3.utils.toWei(a.toString());
+      await contractInstance.methods
+        .buyTokens(accounts[0])
+        .send({ from: currentAccount, value: amountOfEthInwei });
+      setSuccessMsg("Purchase Success!");
+      loadBlockChainData();
+    } catch (error) {
+      setError(error.message);
     }
-    setCurrentAccount(accounts[0]);
-    const amountOfEthInwei = web3.utils.toWei(a.toString());
-    await contractInstance.methods
-      .buyTokens(accounts[0])
-      .send({ from: currentAccount, value: amountOfEthInwei })
-      .once("recepient", (recepient) => {window.alert('Success');}).on('error', () => {
-        window.alert(error)
-      });
   };
   //-----------------//
 
@@ -132,7 +144,17 @@ export const ContextProvider = ({ children }) => {
     checkIfWalletIsConnected();
     callHandler();
     if (currentAccount) loadBlockChainData();
-  }, [currentAccount]);
+    window.ethereum.on("accountsChanged", logAccounts);
+    const clearAccount = () => {
+      console.log(clearAccount);
+      setCurrentAccount("0x0");
+      window.location.reload();
+    };
+    window.ethereum.on("disconnect", clearAccount);
+    return () => {
+      window.ethereum.removeListener("accountsChanged", logAccounts);
+    };
+  }, [currentAccount, individualTokenPurchased]);
   return (
     <Context.Provider
       value={{
@@ -144,7 +166,8 @@ export const ContextProvider = ({ children }) => {
         fundRaised,
         loadBlockChainData,
         error,
-        tokenBuyFunction
+        tokenBuyFunction,
+        successMsg,
       }}
     >
       {children}
