@@ -43,5 +43,13 @@ const Section = styled.section`
   }
 
   @media screen and (min-width: 280px) and (max-width: 1080px) {
+    .image{
+      position: relative;
+      align-items: center;
+      .img1{
+        height: 25vh;
+        width: 30vh;
+      }
+    }
   }
 `;

@@ -45,7 +45,7 @@ export const ContextProvider = ({ children }) => {
         setError(error.message);
       }
     } else {
-      console.log("Please Install Metamask!");
+      window.alert("Please Install Metamask!");
     }
   };
   //----End of Connect Wallet-----//
@@ -143,13 +143,16 @@ export const ContextProvider = ({ children }) => {
     checkIfWalletIsConnected();
     callHandler();
     if (currentAccount) loadBlockChainData();
-    window.ethereum.on("accountsChanged", logAccounts);
     const clearAccount = () => {
       console.log(clearAccount);
       setCurrentAccount("0x0");
       window.location.reload();
     };
+    if (window.ethereum) {
+          window.ethereum.on("accountsChanged", logAccounts);
     window.ethereum.on("disconnect", clearAccount);
+
+    }
     return () => {
       window.ethereum.removeListener("accountsChanged", logAccounts);
     };

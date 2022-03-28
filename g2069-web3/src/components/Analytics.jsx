@@ -7,7 +7,24 @@ import { cardStyles } from "./ReusableStyles";
 import { Context } from "../context/Context";
 import { numberWithCommas } from "../utils/helpers/formatters";
 
-export default function Analytics() {
+const Analytics = () => {
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDesktop(window.innerWidth > 768);
+    }
+  }, []);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 768);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   const { preSeedContributors, fundRaised, preSeedTokenSold } =
     useContext(Context);
   const [timerDays, setTimerDays] = useState("00");
@@ -51,49 +68,96 @@ export default function Analytics() {
       clearInterval(interval.current);
     };
   });
+  if (isDesktop) {
+    return (
+      <Section>
+        <div className="analytic ">
+          <div className="content">
+            <h5>Total Contributors</h5>
+            <h3>{numberWithCommas(preSeedContributors)}</h3>
+          </div>
+          <div className="logo">
+            <BsPeopleFill />
+          </div>
+        </div>
+        <div className="analytic">
+          <div className="logo">
+            <img src={BnbLogo} alt="bnb" />
+          </div>
+          <div className="content">
+            <h5>BNB Raised</h5>
+            <h3>{numberWithCommas(fundRaised)} / 5,000</h3>
+          </div>
+        </div>
+        <div className="analytic">
+          <div className="logo">
+            <img src={GLogo} alt="bnb" />
+          </div>
+          <div className="content">
+            <h5>$G102 Sold</h5>
+            <h3>{numberWithCommas(preSeedTokenSold)} / 2,000,000</h3>
+          </div>
+        </div>
+        <div className="analytic ">
+          <div className="content">
+            <h5>Countdown to Presale</h5>
+            <h3>
+              {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
+            </h3>
+          </div>
+          <div className="logo">
+            <BsFillCalendar2WeekFill />
+          </div>
+        </div>
+      </Section>
+    );
+  }
   return (
     <Section>
-      <div className="analytic ">
-        <div className="content">
-          <h5>Total Contributors</h5>
-          <h3>{numberWithCommas(preSeedContributors)}</h3>
+        <div className="analytic ">
+          <div className="content">
+            <h5>Total Contributors</h5>
+            <h3>Require web3 to Load</h3>
+          </div>
+          <div className="logo">
+            <BsPeopleFill />
+          </div>
         </div>
-        <div className="logo">
-          <BsPeopleFill />
+        <div className="analytic">
+          <div className="logo">
+            <img src={BnbLogo} alt="bnb" />
+          </div>
+          <div className="content">
+            <h5>BNB Raised</h5>
+            <h3>Require web3 to Load</h3>
+          </div>
         </div>
-      </div>
-      <div className="analytic">
-        <div className="logo">
-          <img src={BnbLogo} alt="bnb" />
+        <div className="analytic">
+          <div className="logo">
+            <img src={GLogo} alt="bnb" />
+          </div>
+          <div className="content">
+            <h5>$G102 Sold</h5>
+            <h3>Require web3 to Load</h3>
+          </div>
         </div>
-        <div className="content">
-          <h5>BNB Raised</h5>
-          <h3>{numberWithCommas(fundRaised)} / 5,000</h3>
+        <div className="analytic ">
+          <div className="content">
+            <h5>Countdown to Presale</h5>
+            <h3>
+              {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
+            </h3>
+          </div>
+          <div className="logo">
+            <BsFillCalendar2WeekFill />
+          </div>
         </div>
-      </div>
-      <div className="analytic">
-        <div className="logo">
-        <img src={GLogo} alt="bnb" />
-        </div>
-        <div className="content">
-          <h5>$G102 Sold</h5>
-          <h3>{numberWithCommas(preSeedTokenSold)} / 2,000,000</h3>
-        </div>
-      </div>
-      <div className="analytic ">
-        <div className="content">
-          <h5>Countdown to Presale</h5>
-          <h3>
-            {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
-          </h3>
-        </div>
-        <div className="logo">
-          <BsFillCalendar2WeekFill />
-        </div>
-      </div>
-    </Section>
-  );
-}
+      </Section>
+  )
+};
+
+export default Analytics;
+
 const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
