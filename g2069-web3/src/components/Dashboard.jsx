@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Analytics from "./Analytics";
-import Earnings from "./Earnings";
+import Media from "./Media";
 import FAQ from "./FAQ";
 import Navbar from "./Navbar";
 import Profile from "./Profile";
@@ -32,7 +32,7 @@ export default function Dashboard() {
       <Navbar />
       <div className="grid">
         <div className="row__one">
-          <Earnings />
+          <Media />
           <Transfers />
           <Profile />
         </div>

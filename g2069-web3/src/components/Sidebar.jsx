@@ -5,7 +5,7 @@ import {
   MdOutlineWebAsset,
   MdPeopleAlt,
 } from "react-icons/md";
-import { RiSwordLine } from "react-icons/ri";
+import { RiSwordLine, RiQuestionAnswerLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import { BsBook } from "react-icons/bs";
@@ -34,7 +34,7 @@ export default function Sidebar() {
       .links>ul>li:nth-of-type(3),
       .links>ul>li:nth-of-type(4),
       .links>ul>li:nth-of-type(5),
-      .logout
+      .links>ul>li:nth-of-type(6),
       `,
       {
         opacity: 0,
@@ -113,6 +113,15 @@ export default function Sidebar() {
                   <span> Social Media </span>
                 </a>
               </li>
+              <li
+                className={currentLink === 6 ? "active" : "none"}
+                onClick={() => setCurrentLink(6)}
+              >
+                <a href="https://docs.g2069.com/ido/presale" target="_blank" rel="noreferrer">
+                  <RiQuestionAnswerLine />
+                  <span> FAQ </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -169,6 +178,15 @@ export default function Sidebar() {
                 <span> Social Media </span>
               </a>
             </li>
+            <li
+                className={currentLink === 6 ? "active" : "none"}
+                onClick={() => setCurrentLink(6)}
+              >
+                <a href="https://docs.g2069.com/ido/presale" target="_blank" rel="noreferrer">
+                  <RiQuestionAnswerLine />
+                  <span> FAQ </span>
+                </a>
+              </li>
           </ul>
         </div>
       </ResponsiveNav>

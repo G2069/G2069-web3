@@ -19,7 +19,6 @@ export const ContextProvider = ({ children }) => {
   //Check Wallet Connect//
   const checkIfWalletIsConnected = async () => {
     try {
-      if (!window.ethereum) return alert("Please install metamask!");
       const accounts = await web3.eth.getAccounts();
       if (accounts.length) {
         setCurrentAccount(accounts[0]);

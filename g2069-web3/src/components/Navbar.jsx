@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { getEllipsisTxt } from "../utils/helpers/formatters";
 import styled from "styled-components";
 import { Context } from "../context/Context";
+import Metamask from "../assets/metamask.svg";
 
 export default function Navbar() {
   const { currentAccount, connectWallet, error } = useContext(Context);
@@ -13,9 +14,11 @@ export default function Navbar() {
           Welcome to <span>G-2069 DASHBOARD</span>
         </h1>
       </div>
-      {error && (<h4>{error}</h4>)}
+      <div className="errormsg">{error && <h4>{error}</h4>}</div>
       {!currentAccount && (
-        <button onClick={connectWallet}>Connect Wallet</button>
+        <button className="metamask" onClick={connectWallet}>
+          <img src={Metamask} alt="metamask" /> <p>Login with Metamask</p>
+        </button>
       )}
     </Nav>
   );
@@ -37,6 +40,30 @@ const Nav = styled.nav`
         font-family: "Permanent Marker", cursive;
         letter-spacing: 0.2rem;
       }
+    }
+  }
+  .errormsg {
+    h4 {
+      align-items: center;
+      font-family: "Orbitron", sans-serif;
+      color: #ff0000;
+    }
+  }
+
+  .metamask {
+    border: 1px solid;
+    border-radius: 0.6rem;
+    height: auto;
+    padding: 12px 16px;
+    align-items: center;
+    display: flex;
+    text-transform: none;
+    background-color: #d37305;
+    cursor: pointer;
+    p {
+      margin-left: 2vh;
+      font-size: 1.5vh;
+      font-family: "Orbitron", sans-serif;
     }
   }
   .search {
@@ -75,6 +102,11 @@ const Nav = styled.nav`
           /* letter-spacing: 0; */
         }
       }
+    }
+    .metamask{
+      align-items: center;
+      width: 50%;
+      height: 8vh;
     }
   }
 `;
