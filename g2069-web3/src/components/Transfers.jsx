@@ -25,7 +25,7 @@ export default function Transfers() {
     }
   };
 
-  const tokenAmount = inputFieldChange * 400;
+  const tokenAmount = inputFieldChange * 800;
 
   if (!currentAccount) {
     return (
@@ -38,7 +38,7 @@ export default function Transfers() {
             <div className="transaction__title">
               <div className="transaction__title__details">
                 <h3>{t("ticker")} : $G102</h3>
-                <h3>{t("rate")} : $1 = 1 $G102 </h3>
+                <h3>{t("rate")} : $0.5 = 1 $G102 </h3>
                 <h3>{t("tokenadd")} :</h3>
                 <h3>
                   <a
@@ -82,7 +82,7 @@ export default function Transfers() {
           <div className="transaction__title">
             <div className="transaction__title__details">
               <h3>{t("ticker")} : $G102</h3>
-              <h3>{t("rate")} : $1 = 1 $G102 </h3>
+              <h3>{t("rate")} : $0.5 = 1 $G102 </h3>
               <h3>{t("tokenadd")} :</h3>
               <h3>
                 <a

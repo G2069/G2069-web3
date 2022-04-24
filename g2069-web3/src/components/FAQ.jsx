@@ -32,13 +32,13 @@ export default function FAQ() {
         <div className="faq">
           <div className="info">
             <FaLongArrowAltDown />
-            <h4>{t("mincap")}: 0.7 BNB</h4>
+            <h4>{t("mincap")}: 0.1 BNB</h4>
           </div>
         </div>
         <div className="faq">
           <div className="info">
             <FaLongArrowAltUp />
-            <h4>{t("maxcap")}: 135 BNB</h4>
+            <h4>{t("maxcap")}: 50 BNB</h4>
           </div>
         </div>
         <div className="faq">
