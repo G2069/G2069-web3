@@ -5,45 +5,46 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { VscFlame } from "react-icons/vsc";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 import { cardStyles } from "./ReusableStyles";
+import { useTranslation } from "react-i18next";
 
 export default function FAQ() {
+  const { t } = useTranslation();
   return (
     <Section>
       <div className="title">
-        <h2>Information</h2>
+        <h2>{t("information")}</h2>
       </div>
       <div className="faqs">
         <div className="faq">
           <div className="info">
             <AiFillCalendar />
             <h4>
-              Opening time: 15th April 2022, 00:00 UTC to 30th April 2022, 23:59
-              UTC
+            {t("openingtime")}: {t("openingdesc")}
             </h4>
           </div>
         </div>
         <div className="faq">
           <div className="info">
             <BsFillInfoCircleFill />
-            <h4>Current Stage: Presale</h4>
+            <h4>{t("currentstage")}: {t("stagedesc")}</h4>
           </div>
         </div>
         <div className="faq">
           <div className="info">
             <FaLongArrowAltDown />
-            <h4>Minimum cap: 0.7 BNB</h4>
+            <h4>{t("mincap")}: 0.7 BNB</h4>
           </div>
         </div>
         <div className="faq">
           <div className="info">
             <FaLongArrowAltUp />
-            <h4>Maximum cap: 135 BNB</h4>
+            <h4>{t("maxcap")}: 135 BNB</h4>
           </div>
         </div>
         <div className="faq">
           <div className="info">
             <VscFlame />
-            <h4>Total Supply: 100,000,000</h4>
+            <h4>{t("totalsup")}: 100,000,000</h4>
           </div>
         </div>
       </div>

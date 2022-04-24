@@ -5,8 +5,10 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { cardStyles } from "./ReusableStyles";
 import { Context } from "../context/Context";
 import token from "../assets/gtoken-logo.png";
+import { useTranslation } from "react-i18next";
 
 export default function Transfers() {
+  const { t } = useTranslation();
   const { currentAccount, tokenBuyFunction, error, successMsg } =
     useContext(Context);
   const [inputFieldChange, setInputFieldChange] = useState("");
@@ -29,15 +31,15 @@ export default function Transfers() {
     return (
       <Section>
         <div className="title">
-          <h2>Buy $G102</h2>
+          <h2>{t("buy")} $G102</h2>
         </div>
         <div className="transactions">
           <div className="transaction">
             <div className="transaction__title">
               <div className="transaction__title__details">
-                <h3>Symbol : $G102</h3>
-                <h3>Rate : $1 = 1 $G102 </h3>
-                <h3>Token Address :</h3>
+                <h3>{t("ticker")} : $G102</h3>
+                <h3>{t("rate")} : $1 = 1 $G102 </h3>
+                <h3>{t("tokenadd")} :</h3>
                 <h3>
                   <a
                     href="https://testnet.bscscan.com/address/0x0c6Ce7d7AD2F4b3ba09704e69CB7aB7Ed6556764"
@@ -50,7 +52,7 @@ export default function Transfers() {
                     <HiArrowNarrowRight />
                   </a>
                 </h3>
-                <h3>Presale Contract :</h3>
+                <h3>{t("contractadd")} :</h3>
                 <h3>
                   <a
                     href="https://testnet.bscscan.com/address/0xEA91b782A72d734A81Ec171953301C52e264CfE7"
@@ -73,15 +75,15 @@ export default function Transfers() {
   return (
     <Section>
       <div className="title">
-        <h2>Buy $G102</h2>
+        <h2>{t("buy")} $G102</h2>
       </div>
       <div className="transactions">
         <div className="transaction">
           <div className="transaction__title">
             <div className="transaction__title__details">
-              <h3>Symbol : $G102</h3>
-              <h3>Rate : $1 = 1 $G102 </h3>
-              <h3>Token Address :</h3>
+              <h3>{t("ticker")} : $G102</h3>
+              <h3>{t("rate")} : $1 = 1 $G102 </h3>
+              <h3>{t("tokenadd")} :</h3>
               <h3>
                 <a
                   href="https://testnet.bscscan.com/address/0x0c6Ce7d7AD2F4b3ba09704e69CB7aB7Ed6556764"
@@ -92,7 +94,7 @@ export default function Transfers() {
                   <HiArrowNarrowRight />
                 </a>
               </h3>
-              <h3>Presale Contract :</h3>
+              <h3>{t("contractadd")} :</h3>
               <h3>
                 <a
                   href="https://testnet.bscscan.com/address/0xEA91b782A72d734A81Ec171953301C52e264CfE7"
@@ -120,7 +122,7 @@ export default function Transfers() {
       </div>
       <div className="button__section">
         <button className="purchase" onClick={onSubmit}>
-          <p>Buy</p>
+          <p>{t("buy")}</p>
         </button>
       </div>
       <div className="errormsg">{error && <p>{error}</p>}</div>

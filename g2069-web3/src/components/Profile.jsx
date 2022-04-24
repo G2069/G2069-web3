@@ -4,8 +4,10 @@ import styled from "styled-components";
 import image from "../assets/profile.jpg";
 import { cardStyles } from "./ReusableStyles";
 import { Context } from "../context/Context";
+import { useTranslation } from "react-i18next";
 
 export default function Profile() {
+  const { t } = useTranslation();
   const { currentAccount, individualTokenPurchased } = useContext(Context);
   if (!currentAccount) {
     return (
@@ -15,7 +17,7 @@ export default function Profile() {
         </div>
         <div className="title">
           <h2>
-            Connect Your Wallet to Kick Start Your Journey in G-2069 Metaverse
+            {t("connectdesc")}
           </h2>
         </div>
       </Section>
@@ -31,12 +33,12 @@ export default function Profile() {
       </div>
       <div className="info">
         <div className="container">
-          <h5>$G102 Purchased :</h5>
-          <h3>{individualTokenPurchased}</h3>
+          <h5>{t("purchased")} :</h5>
+          <h3>{individualTokenPurchased} $G102</h3>
         </div>
         <div className="container">
-          <h5>Vesting Address :</h5>
-          <h3>Token will start vesting after presale end.</h3>
+          <h5>{t("vestingadd")} :</h5>
+          <h3>{t("vestingdesc")}</h3>
         </div>
       </div>
     </Section>

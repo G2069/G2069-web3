@@ -1,18 +1,41 @@
 import React from "react";
 import styled from "styled-components";
 import { cardStyles } from "./ReusableStyles";
-import thumbnail from "../assets/thumbnail-bighead.jpg";
+import { HiArrowNarrowRight } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 
 export default function Media() {
+  const { t } = useTranslation();
   return (
     <Section>
       <div className="title">
-        <h2>Launch Trailer</h2>
+        <h2>{t("airdrop")}</h2>
       </div>
-      <div className="image">
-        <a href="https://youtu.be/ohd_AMrgOjI" target="_blank" rel="noreferrer">
-          <img className="img1" src={thumbnail} alt="G2069-Thumbnail" />
+      <div className="container">
+        <h3>
+          {t("airdrop")} {t("amount")} : 500,000 $G102
+        </h3>
+        <a
+          href="https://discord.gg/KncxJwWf4K"
+          target="_blank"
+          rel="noreferrer"
+          className="discord-link"
+        >
+          <h3>
+            {t("airdrop")} {t("details")} <HiArrowNarrowRight />
+          </h3>
         </a>
+      </div>
+      <div className="container">
+        <hr></hr>
+      </div>
+      <div className="container">
+        <h3>{t("balance")} :</h3>
+      </div>
+      <div className="buttonsection">
+        <button className="claim" disabled>
+          <p>{t("claim")}</p>
+        </button>
       </div>
     </Section>
   );
@@ -20,7 +43,6 @@ export default function Media() {
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  min-height: 20rem;
   ${cardStyles}
   .title {
     h2 {
@@ -29,26 +51,39 @@ const Section = styled.section`
       letter-spacing: 0.3rem;
     }
   }
-  .image {
-    position: relative;
-    align-items: center;
-    margin-top: 5vh;
-    .img1 {
-      position: relative;
-      height: 30vh;
-      width: 50vh;
-      overflow: hidden;
-      z-index: 1;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-family: "Orbitron", sans-serif;
+    .discord-link{
+      text-decoration: none;
+      color: white;
     }
   }
 
-  @media screen and (min-width: 280px) and (max-width: 1080px) {
-    .image{
-      position: relative;
-      align-items: center;
-      .img1{
-        height: 25vh;
-        width: 30vh;
+  .buttonsection {
+    display: flex;
+    justify-content: center;
+    padding-top: 9rem;
+    .claim {
+      display: flex;
+      justify-content: center;
+      background-color: grey;
+      padding: 0.5rem 0.5rem;
+      width: 7rem;
+      border: #fd1e2d;
+      border-radius: 2rem;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+      p {
+        font-size: 1.5rem;
+        font-family: "Orbitron", sans-serif;
+        color: black;
       }
     }
   }

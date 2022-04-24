@@ -6,8 +6,10 @@ import GLogo from "../assets/gtoken-logo.png";
 import { cardStyles } from "./ReusableStyles";
 import { Context } from "../context/Context";
 import { numberWithCommas } from "../utils/helpers/formatters";
+import { useTranslation } from "react-i18next";
 
 const Analytics = () => {
+  const { t } = useTranslation();
   const [isDesktop, setDesktop] = useState(false);
 
   useEffect(() => {
@@ -73,7 +75,7 @@ const Analytics = () => {
       <Section>
         <div className="analytic ">
           <div className="content">
-            <h5>Total Contributors</h5>
+            <h5>{t("totalcont")}</h5>
             <h3>{numberWithCommas(preSeedContributors)}</h3>
           </div>
           <div className="logo">
@@ -85,7 +87,7 @@ const Analytics = () => {
             <img src={BnbLogo} alt="bnb" />
           </div>
           <div className="content">
-            <h5>BNB Raised</h5>
+            <h5>{t("bnbraised")}</h5>
             <h3>{numberWithCommas(fundRaised)} / 5,000</h3>
           </div>
         </div>
@@ -94,13 +96,13 @@ const Analytics = () => {
             <img src={GLogo} alt="bnb" />
           </div>
           <div className="content">
-            <h5>$G102 Sold</h5>
+            <h5>{t("sold")}</h5>
             <h3>{numberWithCommas(preSeedTokenSold)} / 2,000,000</h3>
           </div>
         </div>
         <div className="analytic ">
           <div className="content">
-            <h5>Countdown to Presale</h5>
+            <h5>{t("countdown")}</h5>
             <h3>
               {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
             </h3>
@@ -114,46 +116,46 @@ const Analytics = () => {
   }
   return (
     <Section>
-        <div className="analytic ">
-          <div className="content">
-            <h5>Total Contributors</h5>
-            <h3>Require web3 to Load</h3>
-          </div>
-          <div className="logo">
-            <BsPeopleFill />
-          </div>
+      <div className="analytic ">
+        <div className="content">
+          <h5>{t("totalcont")}</h5>
+          <h3>{t("reqweb")}</h3>
         </div>
-        <div className="analytic">
-          <div className="logo">
-            <img src={BnbLogo} alt="bnb" />
-          </div>
-          <div className="content">
-            <h5>BNB Raised</h5>
-            <h3>Require web3 to Load</h3>
-          </div>
+        <div className="logo">
+          <BsPeopleFill />
         </div>
-        <div className="analytic">
-          <div className="logo">
-            <img src={GLogo} alt="bnb" />
-          </div>
-          <div className="content">
-            <h5>$G102 Sold</h5>
-            <h3>Require web3 to Load</h3>
-          </div>
+      </div>
+      <div className="analytic">
+        <div className="logo">
+          <img src={BnbLogo} alt="bnb" />
         </div>
-        <div className="analytic ">
-          <div className="content">
-            <h5>Countdown to Presale</h5>
-            <h3>
-              {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
-            </h3>
-          </div>
-          <div className="logo">
-            <BsFillCalendar2WeekFill />
-          </div>
+        <div className="content">
+          <h5>{t("bnbraised")}</h5>
+          <h3>{t("reqweb")}</h3>
         </div>
-      </Section>
-  )
+      </div>
+      <div className="analytic">
+        <div className="logo">
+          <img src={GLogo} alt="bnb" />
+        </div>
+        <div className="content">
+          <h5>{t("sold")}</h5>
+          <h3>{t("reqweb")}</h3>
+        </div>
+      </div>
+      <div className="analytic ">
+        <div className="content">
+          <h5>{t("countdown")}</h5>
+          <h3>
+            {timerDays}:{timerHours}:{timerMinutes}:{timerSeconds}
+          </h3>
+        </div>
+        <div className="logo">
+          <BsFillCalendar2WeekFill />
+        </div>
+      </div>
+    </Section>
+  );
 };
 
 export default Analytics;

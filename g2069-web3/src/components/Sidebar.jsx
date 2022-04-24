@@ -11,12 +11,27 @@ import { VscChromeClose } from "react-icons/vsc";
 import { BsBook } from "react-icons/bs";
 import scrollreveal from "scrollreveal";
 import logoimage from "../assets/logo.png";
+import { useTranslation } from "react-i18next";
+
+const lngs = {
+  en: { nativeName: "English" },
+  zh: { nativeName: "Chinese" },
+};
 
 export default function Sidebar() {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState("language");
   const [currentLink, setCurrentLink] = useState(1);
   const [navbarState, setNavbarState] = useState(false);
   const html = document.querySelector("html");
   html.addEventListener("click", () => setNavbarState(false));
+
+  const handleLangChange = (evt) => {
+    const lang = evt.target.value;
+    console.log(lang);
+    setLanguage(lang);
+    i18n.changeLanguage(lang);
+  };
 
   useEffect(() => {
     const sr = scrollreveal({
@@ -70,25 +85,33 @@ export default function Sidebar() {
               >
                 <a href="/">
                   <MdSpaceDashboard />
-                  <span> Dashboard</span>
+                  <span>{t("dashboard")}</span>
                 </a>
               </li>
               <li
                 className={currentLink === 2 ? "active" : "none"}
                 onClick={() => setCurrentLink(2)}
               >
-                <a href="https://www.g2069.com/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.g2069.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <MdOutlineWebAsset />
-                  <span> Main Website</span>
+                  <span> {t("website")}</span>
                 </a>
               </li>
               <li
                 className={currentLink === 3 ? "active" : "none"}
                 onClick={() => setCurrentLink(3)}
               >
-                <a href="https://www.g2069.com/intro" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.g2069.com/intro"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <RiSwordLine />
-                  <span> Intro </span>
+                  <span>{t("intro")}</span>
                 </a>
               </li>
               <li
@@ -101,28 +124,42 @@ export default function Sidebar() {
                   rel="noreferrer"
                 >
                   <BsBook />
-                  <span> Whitepaper </span>
+                  <span>{t("whitepaper")}</span>
                 </a>
               </li>
               <li
                 className={currentLink === 5 ? "active" : "none"}
                 onClick={() => setCurrentLink(5)}
               >
-                <a href="https://linktr.ee/g2069" target="_blank" rel="noreferrer">
+                <a
+                  href="https://linktr.ee/g2069"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <MdPeopleAlt />
-                  <span> Social Media </span>
+                  <span>{t("social")}</span>
                 </a>
               </li>
               <li
                 className={currentLink === 6 ? "active" : "none"}
                 onClick={() => setCurrentLink(6)}
               >
-                <a href="https://docs.g2069.com/ido/presale" target="_blank" rel="noreferrer">
+                <a
+                  href="https://docs.g2069.com/ido/presale"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <RiQuestionAnswerLine />
-                  <span> FAQ </span>
+                  <span>{t("faq")}</span>
                 </a>
               </li>
             </ul>
+          </div>
+          <div className="custom-dropdown">
+            <select onChange={handleLangChange} value={language}>
+              <option value="en">EN</option>
+              <option value="zh">ZH</option>
+            </select>
           </div>
         </div>
       </Section>
@@ -135,7 +172,7 @@ export default function Sidebar() {
             >
               <a href="/">
                 <MdSpaceDashboard />
-                <span> Dashboard</span>
+                <span>{t("dashboard")}</span>
               </a>
             </li>
             <li
@@ -144,16 +181,20 @@ export default function Sidebar() {
             >
               <a href="https://www.g2069.com/" target="_blank" rel="noreferrer">
                 <MdOutlineWebAsset />
-                <span> Main Website</span>
+                <span> {t("website")}</span>
               </a>
             </li>
             <li
               className={currentLink === 3 ? "active" : "none"}
               onClick={() => setCurrentLink(3)}
             >
-              <a href="https://www.g2069.com/intro" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.g2069.com/intro"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <RiSwordLine />
-                <span> Intro </span>
+                <span>{t("intro")}</span>
               </a>
             </li>
             <li
@@ -166,27 +207,47 @@ export default function Sidebar() {
                 rel="noreferrer"
               >
                 <BsBook />
-                <span> Whitepaper </span>
+                <span>{t("whitepaper")}</span>
               </a>
             </li>
             <li
               className={currentLink === 5 ? "active" : "none"}
               onClick={() => setCurrentLink(5)}
             >
-              <a href="https://linktr.ee/g2069" target="_blank" rel="noreferrer">
+              <a
+                href="https://linktr.ee/g2069"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <MdPeopleAlt />
-                <span> Social Media </span>
+                <span>{t("social")}</span>
               </a>
             </li>
             <li
-                className={currentLink === 6 ? "active" : "none"}
-                onClick={() => setCurrentLink(6)}
+              className={currentLink === 6 ? "active" : "none"}
+              onClick={() => setCurrentLink(6)}
+            >
+              <a
+                href="https://docs.g2069.com/ido/presale"
+                target="_blank"
+                rel="noreferrer"
               >
-                <a href="https://docs.g2069.com/ido/presale" target="_blank" rel="noreferrer">
-                  <RiQuestionAnswerLine />
-                  <span> FAQ </span>
-                </a>
-              </li>
+                <RiQuestionAnswerLine />
+                <span>{t("faq")}</span>
+              </a>
+            </li>
+            <li>
+              {Object.keys(lngs).map((lng) => (
+                <button
+                  key={lng}
+                  type="submit"
+                  onClick={() => i18n.changeLanguage(lng)}
+                  className="language-select"
+                >
+                  {lngs[lng].nativeName}
+                </button>
+              ))}
+            </li>
           </ul>
         </div>
       </ResponsiveNav>
@@ -258,6 +319,24 @@ const Section = styled.section`
         }
       }
     }
+    .custom-dropdown {
+      display: flex;
+      justify-content: center;
+    }
+    .custom-dropdown select {
+      font-family: "Orbitron", sans-serif;
+      background-color: #08ebff;
+      color: black;
+      font-size: inherit;
+      padding: 0.5em;
+      padding-right: 2.5em;
+      border: 0;
+      margin: 0;
+      border-radius: 3px;
+      text-indent: 0.01px;
+      text-overflow: "";
+      -webkit-appearance: button; /* hide default arrow in chrome OSX */
+    }
   }
 
   .logout {
@@ -299,6 +378,9 @@ const Section = styled.section`
         img {
           width: 40%;
         }
+      }
+      .custom-dropdown {
+        display: none;
       }
     }
     .top > .links,
@@ -343,6 +425,12 @@ const ResponsiveNav = styled.div`
           display: flex;
           gap: 1rem;
           color: white;
+        }
+        .language-select {
+          padding: 0.3rem 1rem;
+          border-radius: 0.6rem;
+          font-family: "Orbitron", sans-serif;
+          background-color: #08ebff;
         }
       }
       .active {

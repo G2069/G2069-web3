@@ -3,21 +3,27 @@ import { getEllipsisTxt } from "../utils/helpers/formatters";
 import styled from "styled-components";
 import { Context } from "../context/Context";
 import Metamask from "../assets/metamask.svg";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const { currentAccount, connectWallet, error } = useContext(Context);
   return (
     <Nav>
       <div className="title">
-        <h4>Hi, {getEllipsisTxt(currentAccount)}</h4>
+        <h4>
+          {t("hi")}
+          {getEllipsisTxt(currentAccount)}
+        </h4>
         <h1>
-          Welcome to <span>G-2069 DASHBOARD</span>
+          {t("welcome")}
+          <span>G-2069 {t("dashboard")}</span>
         </h1>
       </div>
       <div className="errormsg">{error && <h4>{error}</h4>}</div>
       {!currentAccount && (
         <button className="metamask" onClick={connectWallet}>
-          <img src={Metamask} alt="metamask" /> <p>Login with Metamask</p>
+          <img src={Metamask} alt="metamask" /> <p>{t("login")}</p>
         </button>
       )}
     </Nav>
@@ -103,7 +109,7 @@ const Nav = styled.nav`
         }
       }
     }
-    .metamask{
+    .metamask {
       align-items: center;
       width: 50%;
       height: 8vh;
