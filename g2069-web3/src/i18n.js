@@ -46,7 +46,7 @@ i18n
           vestingdesc: "Token will start vesting after seed round end.",
           information: "INFORMATION",
           openingtime: "Opening Time",
-          openingdesc: "15th May 2022, 00:00 UTC to 31st May 2022, 23:59 UTC",
+          openingdesc: "1st June 2022, 00:00 UTC to 30th June 2022, 23:59 UTC",
           currentstage: "Current Stage",
           stagedesc: "Seed Round",
           mincap: "Minimum Cap",
@@ -56,7 +56,9 @@ i18n
           bnbraised: "BNB RAISED",
           sold: "$G102 SOLD",
           countdown: "COUNTDOWN TO PRESALE",
-          reqweb: "Require Web3 to load"
+          reqweb: "Require Web3 to load",
+          notwhitelisted: "Not in the Whitelist!",
+          whitelisted: "Whitelisted!"
         },
       },
       zh: {
@@ -87,7 +89,7 @@ i18n
           vestingdesc: "上锁地址将在种植投资完成后发布",
           information: "详情",
           openingtime: "时间",
-          openingdesc: "2022年5月15日 00:00UTC至2022年5月31日 23:59UTC",
+          openingdesc: "2022年6月1日 00:00UTC至2022年6月30日 23:59UTC",
           currentstage: "阶段",
           stagedesc: "种子投资",
           mincap: "最低购买量",
@@ -97,7 +99,9 @@ i18n
           bnbraised: "已筹得BNB",
           sold: "已售出$G102",
           countdown: "倒计时",
-          reqweb: "请链接钱包"
+          reqweb: "请链接钱包",
+          notwhitelisted: "不在白名单内！",
+          whitelisted: "在白名单内！"
         },
       },
     },

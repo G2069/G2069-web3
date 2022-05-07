@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Transfers() {
   const { t } = useTranslation();
-  const { currentAccount, tokenBuyFunction, error, successMsg } =
+  const { currentAccount, tokenBuyFunction, error, successMsg, isWhitelisted } =
     useContext(Context);
   const [inputFieldChange, setInputFieldChange] = useState("");
 
@@ -18,10 +18,10 @@ export default function Transfers() {
   };
 
   const onSubmit = async () => {
-    if (parseFloat(inputFieldChange) > 0.67) {
+    if (parseFloat(inputFieldChange) >= 0.1) {
       await tokenBuyFunction(inputFieldChange);
     } else {
-      window.alert("Minumum Purchase is 0.67BNB");
+      window.alert("Minumum Purchase is 0.1BNB");
     }
   };
 
@@ -120,13 +120,28 @@ export default function Transfers() {
         <img src={token} alt="g2069 token" />
         <p>{tokenAmount} $G102</p>
       </div>
-      <div className="button__section">
-        <button className="purchase" onClick={onSubmit}>
-          <p>{t("buy")}</p>
-        </button>
+      {isWhitelisted && (
+        <div className="button__section">
+          <button className="purchase" onClick={onSubmit}>
+            <p>{t("buy")}</p>
+          </button>
+        </div>
+      )}
+      {!isWhitelisted && (
+        <div className="button__section">
+          <button className="invalid">
+            <p>{t("buy")}</p>
+          </button>
+        </div>
+      )}
+      <div className="errormsg">
+        {error && <p>{error}</p>}
+        {!isWhitelisted && <p>{t("notwhitelisted")}</p>}
       </div>
-      <div className="errormsg">{error && <p>{error}</p>}</div>
-      <div className="successmsg">{successMsg && <p>{successMsg}</p>}</div>
+      <div className="successmsg">
+        {successMsg && <p>{successMsg}</p>}
+        {isWhitelisted && <p>{t("whitelisted")}</p>}
+      </div>
     </Section>
   );
 }
@@ -209,6 +224,25 @@ const Section = styled.section`
       color: black;
     }
   }
+  .invalid {
+    display: flex;
+    justify-content: center;
+    background-color: #808080;
+    padding: 0.5rem 0.5rem;
+    width: 7rem;
+    border: #808080;
+    border-radius: 2rem;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+    p {
+      font-size: 1.5rem;
+      font-family: 'Orbitron', sans-serif;
+      color: black;
+    }
+  }
 
   .button__section {
     display: flex;
@@ -216,6 +250,7 @@ const Section = styled.section`
   }
 
   .errormsg {
+    text-align: center;
     p{
       color: red;
       font-family: 'Orbitron', sans-serif;
@@ -223,6 +258,7 @@ const Section = styled.section`
   }
 
   .successmsg{
+    text-align: center;
     p{
       color: green;
       font-family: 'Orbitron', sans-serif;
