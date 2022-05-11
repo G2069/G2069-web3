@@ -103,7 +103,7 @@ export const ContextProvider = ({ children }) => {
 
       //--------End of Presale Contract--------//
     } else {
-      window.alert("Please Connect To Binance Smart Chain");
+      window.alert("Currently testing on Binance Testnet");
     }
   }, [currentAccount]);
   //--------------------//
