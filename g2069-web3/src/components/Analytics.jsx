@@ -37,7 +37,7 @@ const Analytics = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date("June 1, 2022 08:00:00").getTime();
+    const countdownDate = new Date("June 15, 2022 08:00:00").getTime();
 
     interval.current = setInterval(() => {
       const now = new Date().getTime();

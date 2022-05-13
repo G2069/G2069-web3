@@ -42,28 +42,20 @@ export default function Transfers() {
                 <h3>{t("tokenadd")} :</h3>
                 <h3>
                   <a
-                    href="https://testnet.bscscan.com/address/0x0c6Ce7d7AD2F4b3ba09704e69CB7aB7Ed6556764"
+                    href="https://bscscan.com/address/0x215B4AD5d547433Bf7206a3e6cc49d169Fab3387"
                     target="_blank"
                     rel="noreferrer"
                   >
                     {getEllipsisTxt(
-                      "0x0c6ce7d7ad2f4b3ba09704e69cb7ab7ed6556764"
+                      "0x215B4AD5d547433Bf7206a3e6cc49d169Fab3387"
                     )}
                     <HiArrowNarrowRight />
                   </a>
                 </h3>
                 <h3>{t("contractadd")} :</h3>
                 <h3>
-                  <a
-                    href="https://testnet.bscscan.com/address/0xEA91b782A72d734A81Ec171953301C52e264CfE7"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {getEllipsisTxt(
-                      "0xEA91b782A72d734A81Ec171953301C52e264CfE7"
-                    )}
-                    <HiArrowNarrowRight />
-                  </a>
+                  TBD
+                  <HiArrowNarrowRight />
                 </h3>
               </div>
             </div>
@@ -86,24 +78,18 @@ export default function Transfers() {
               <h3>{t("tokenadd")} :</h3>
               <h3>
                 <a
-                  href="https://testnet.bscscan.com/address/0x0c6Ce7d7AD2F4b3ba09704e69CB7aB7Ed6556764"
+                  href="https://bscscan.com/address/0x215B4AD5d547433Bf7206a3e6cc49d169Fab3387"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {getEllipsisTxt("0x0c6ce7d7ad2f4b3ba09704e69cb7ab7ed6556764")}
+                  {getEllipsisTxt("0x215B4AD5d547433Bf7206a3e6cc49d169Fab3387")}
                   <HiArrowNarrowRight />
                 </a>
               </h3>
               <h3>{t("contractadd")} :</h3>
               <h3>
-                <a
-                  href="https://testnet.bscscan.com/address/0xEA91b782A72d734A81Ec171953301C52e264CfE7"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {getEllipsisTxt("0xEA91b782A72d734A81Ec171953301C52e264CfE7")}
-                  <HiArrowNarrowRight />
-                </a>
+                TBD
+                <HiArrowNarrowRight />
               </h3>
             </div>
           </div>
