@@ -34,7 +34,7 @@ export default function Profile() {
       <div className="info">
         <div className="container">
           <h5>{t("purchased")} :</h5>
-          <h3>{individualTokenPurchased} $G102</h3>
+          <h3>{individualTokenPurchased} $GS</h3>
         </div>
         <div className="container">
           <h5>{t("vestingadd")} :</h5>

@@ -31,14 +31,14 @@ export default function Transfers() {
     return (
       <Section>
         <div className="title">
-          <h2>{t("buy")} $G102</h2>
+          <h2>{t("buy")} $GS</h2>
         </div>
         <div className="transactions">
           <div className="transaction">
             <div className="transaction__title">
               <div className="transaction__title__details">
-                <h3>{t("ticker")} : $G102</h3>
-                <h3>{t("rate")} : $0.5 = 1 $G102 </h3>
+                <h3>{t("ticker")} : $GS</h3>
+                <h3>{t("rate")} : $0.5 = 1 $GS </h3>
                 <h3>{t("tokenadd")} :</h3>
                 <h3>
                   <a
@@ -75,14 +75,14 @@ export default function Transfers() {
   return (
     <Section>
       <div className="title">
-        <h2>{t("buy")} $G102</h2>
+        <h2>{t("buy")} $GS</h2>
       </div>
       <div className="transactions">
         <div className="transaction">
           <div className="transaction__title">
             <div className="transaction__title__details">
-              <h3>{t("ticker")} : $G102</h3>
-              <h3>{t("rate")} : $0.5 = 1 $G102 </h3>
+              <h3>{t("ticker")} : $GS</h3>
+              <h3>{t("rate")} : $0.5 = 1 $GS </h3>
               <h3>{t("tokenadd")} :</h3>
               <h3>
                 <a
@@ -118,7 +118,7 @@ export default function Transfers() {
         />
         <p>=</p>
         <img src={token} alt="g2069 token" />
-        <p>{tokenAmount} $G102</p>
+        <p>{tokenAmount} $GS</p>
       </div>
       {isWhitelisted && (
         <div className="button__section">

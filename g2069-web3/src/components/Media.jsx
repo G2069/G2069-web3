@@ -13,7 +13,7 @@ export default function Media() {
       </div>
       <div className="container">
         <h3>
-          {t("airdrop")} {t("amount")} : 500,000 $G102
+          {t("airdrop")} {t("amount")} : 200,000 $GS
         </h3>
         <a
           href="https://discord.gg/KncxJwWf4K"
