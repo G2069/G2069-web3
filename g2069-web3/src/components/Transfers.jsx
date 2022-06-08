@@ -54,8 +54,16 @@ export default function Transfers() {
                 </h3>
                 <h3>{t("contractadd")} :</h3>
                 <h3>
-                  TBD
-                  <HiArrowNarrowRight />
+                  <a
+                    href="https://bscscan.com/address/0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {getEllipsisTxt(
+                      "0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                    )}
+                    <HiArrowNarrowRight />
+                  </a>
                 </h3>
               </div>
             </div>
@@ -88,8 +96,14 @@ export default function Transfers() {
               </h3>
               <h3>{t("contractadd")} :</h3>
               <h3>
-                TBD
-                <HiArrowNarrowRight />
+                <a
+                  href="https://bscscan.com/address/0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {getEllipsisTxt("0xE2D17027277edFd621085EDae3459AfC3CB6aCF3")}
+                  <HiArrowNarrowRight />
+                </a>
               </h3>
             </div>
           </div>

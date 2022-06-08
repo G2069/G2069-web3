@@ -5,4 +5,4 @@ export const tokenAbi = TokenAbi.abi;
 export const tokenAddress = "0x215B4AD5d547433Bf7206a3e6cc49d169Fab3387";
 
 export const preSeedAbi = PreSeedAbi.abi;
-export const preSeedAddress = "0x36Bf523847d632048F9dabF22334760Ba787D8C4";
+export const preSeedAddress = "0xE2D17027277edFd621085EDae3459AfC3CB6aCF3";

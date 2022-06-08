@@ -76,7 +76,7 @@ export const ContextProvider = ({ children }) => {
       console.log("No account found!");
     }
     const networkId = await web3.eth.net.getId();
-    if (networkId === 97) {
+    if (networkId === 56) {
       //Presale Contract//
       const preSeedContract = new web3.eth.Contract(preSeedAbi, preSeedAddress);
       setContractInstance(preSeedContract);
@@ -103,7 +103,7 @@ export const ContextProvider = ({ children }) => {
 
       //--------End of Presale Contract--------//
     } else {
-      window.alert("Currently testing on Binance Testnet");
+      window.alert("Please Connect to Binance Smart Chain");
     }
   }, [currentAccount]);
   //--------------------//
@@ -111,7 +111,7 @@ export const ContextProvider = ({ children }) => {
   //Smart Contract Call Handler//
   const callHandler = async () => {
     const networkId = await web3.eth.net.getId();
-    if (networkId === 97) {
+    if (networkId === 56) {
       const preSeedContract = new web3.eth.Contract(preSeedAbi, preSeedAddress);
       //token sold//
       let tokenSold = await preSeedContract.methods

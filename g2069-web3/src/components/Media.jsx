@@ -13,10 +13,10 @@ export default function Media() {
       </div>
       <div className="container">
         <h3>
-          {t("airdrop")} {t("amount")} : 200,000 $GS
+          {t("airdrop")} {t("amount")} : 1,000,000 $GS
         </h3>
         <a
-          href="https://discord.gg/KncxJwWf4K"
+          href="https://forms.gle/NFoGhn2Gde1PivQt8"
           target="_blank"
           rel="noreferrer"
           className="discord-link"
