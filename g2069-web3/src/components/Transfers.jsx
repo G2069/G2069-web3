@@ -55,12 +55,12 @@ export default function Transfers() {
                 <h3>{t("contractadd")} :</h3>
                 <h3>
                   <a
-                    href="https://bscscan.com/address/0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                    href="https://bscscan.com/address/0xFf64E5502FAdDD2a5F63242Deaa7409f022B5877"
                     target="_blank"
                     rel="noreferrer"
                   >
                     {getEllipsisTxt(
-                      "0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                      "0xFf64E5502FAdDD2a5F63242Deaa7409f022B5877"
                     )}
                     <HiArrowNarrowRight />
                   </a>
@@ -97,11 +97,11 @@ export default function Transfers() {
               <h3>{t("contractadd")} :</h3>
               <h3>
                 <a
-                  href="https://bscscan.com/address/0xE2D17027277edFd621085EDae3459AfC3CB6aCF3"
+                  href="https://bscscan.com/address/0xFf64E5502FAdDD2a5F63242Deaa7409f022B5877"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {getEllipsisTxt("0xE2D17027277edFd621085EDae3459AfC3CB6aCF3")}
+                  {getEllipsisTxt("0xFf64E5502FAdDD2a5F63242Deaa7409f022B5877")}
                   <HiArrowNarrowRight />
                 </a>
               </h3>
