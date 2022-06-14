@@ -15,6 +15,16 @@ export default function Media() {
         <h3>
           {t("airdrop")} {t("amount")} : 1,000,000 $GS
         </h3>
+        <h3>
+          {t("reward")}: 50 $GS
+        </h3>
+      </div>
+      <div className="container">
+        <hr></hr>
+      </div>
+      <div className="container">
+        <h3>{t("start")}</h3>
+        <h3>{t("end")}</h3>
         <a
           href="https://forms.gle/NFoGhn2Gde1PivQt8"
           target="_blank"
@@ -22,15 +32,9 @@ export default function Media() {
           className="discord-link"
         >
           <h3>
-            {t("airdrop")} {t("details")} <HiArrowNarrowRight />
+          {t("details")} <HiArrowNarrowRight />
           </h3>
         </a>
-      </div>
-      <div className="container">
-        <hr></hr>
-      </div>
-      <div className="container">
-        <h3>{t("balance")} :</h3>
       </div>
       <div className="buttonsection">
         <button className="claim" disabled>

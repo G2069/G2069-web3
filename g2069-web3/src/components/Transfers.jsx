@@ -25,7 +25,7 @@ export default function Transfers() {
     }
   };
 
-  const tokenAmount = inputFieldChange * 600;
+  const tokenAmount = inputFieldChange * 460;
 
   if (!currentAccount) {
     return (

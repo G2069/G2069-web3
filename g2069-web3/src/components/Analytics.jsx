@@ -88,7 +88,7 @@ const Analytics = () => {
           </div>
           <div className="content">
             <h5>{t("bnbraised")}</h5>
-            <h3>{numberWithCommas(fundRaised)} / 1,250</h3>
+            <h3>{numberWithCommas(fundRaised)} / 2,174</h3>
           </div>
         </div>
         <div className="analytic">
@@ -97,7 +97,7 @@ const Analytics = () => {
           </div>
           <div className="content">
             <h5>{t("sold")}</h5>
-            <h3>{numberWithCommas(preSeedTokenSold)} / 500,000</h3>
+            <h3>{numberWithCommas(preSeedTokenSold)} / 1,000,000</h3>
           </div>
         </div>
         <div className="analytic ">
