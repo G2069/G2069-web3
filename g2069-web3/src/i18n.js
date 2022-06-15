@@ -58,7 +58,7 @@ i18n
           totalcont: "TOTAL CONTRIBUTORS",
           bnbraised: "BNB RAISED",
           sold: "$GS SOLD",
-          countdown: "COUNTDOWN TO PRESALE",
+          countdown: "PRESEED TIME LEFT",
           reqweb: "Require Web3 to load",
           notwhitelisted: "Not in the Whitelist!",
           whitelisted: "Whitelisted!"
@@ -104,7 +104,7 @@ i18n
           totalcont: "总投资者",
           bnbraised: "已筹得BNB",
           sold: "已售出$GS",
-          countdown: "倒计时",
+          countdown: "结束倒计时",
           reqweb: "请链接钱包",
           notwhitelisted: "不在白名单内！",
           whitelisted: "在白名单内！"
