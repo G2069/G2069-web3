@@ -38,7 +38,7 @@ export default function Transfers() {
             <div className="transaction__title">
               <div className="transaction__title__details">
                 <h3>{t("ticker")} : $GS</h3>
-                <h3>{t("rate")} : $0.5 = 1 $GS </h3>
+                <h3>{t("rate")} : 1 BNB = 460 $GS </h3>
                 <h3>{t("tokenadd")} :</h3>
                 <h3>
                   <a
