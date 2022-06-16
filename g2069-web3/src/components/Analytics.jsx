@@ -1,10 +1,9 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { BsFillCalendar2WeekFill, BsPeopleFill } from "react-icons/bs";
 import BnbLogo from "../assets/binance-coin.png";
 import GLogo from "../assets/gtoken-logo.png";
 import { cardStyles } from "./ReusableStyles";
-import { Context } from "../context/Context";
 import { numberWithCommas } from "../utils/helpers/formatters";
 import { useTranslation } from "react-i18next";
 
@@ -26,9 +25,6 @@ const Analytics = () => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
-
-  const { preSeedContributors, fundRaised, preSeedTokenSold } =
-    useContext(Context);
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
   const [timerMinutes, setTimerMinutes] = useState("00");
@@ -76,7 +72,7 @@ const Analytics = () => {
         <div className="analytic ">
           <div className="content">
             <h5>{t("totalcont")}</h5>
-            <h3>{numberWithCommas(preSeedContributors)}</h3>
+            <h3>{numberWithCommas(72)}</h3>
           </div>
           <div className="logo">
             <BsPeopleFill />
@@ -88,7 +84,7 @@ const Analytics = () => {
           </div>
           <div className="content">
             <h5>{t("bnbraised")}</h5>
-            <h3>{numberWithCommas(fundRaised)} / 2,174</h3>
+            <h3>{numberWithCommas(34.8)} / 2,174</h3>
           </div>
         </div>
         <div className="analytic">
@@ -97,7 +93,7 @@ const Analytics = () => {
           </div>
           <div className="content">
             <h5>{t("sold")}</h5>
-            <h3>{numberWithCommas(preSeedTokenSold)} / 1,000,000</h3>
+            <h3>{numberWithCommas(16008)} / 1,000,000</h3>
           </div>
         </div>
         <div className="analytic ">
